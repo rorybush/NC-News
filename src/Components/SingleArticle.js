@@ -7,7 +7,7 @@ import CommentsList from "./CommentsList";
 function SingleArticle() {
   const { article_id } = useParams();
 
-  const [SingleArticle, setSingleArticle] = useState([]);
+  const [SingleArticle, setSingleArticle] = useState({});
 
   useEffect(() => {
     api.fetchArticleById(article_id).then(({ article }) => {
