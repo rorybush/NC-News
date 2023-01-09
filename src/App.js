@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./Components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticleList from "./Components/ArticleList";
+import SingleArticle from "./Components/SingleArticle";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ArticleList />} />
+          <Route path="/:article_id" element={<SingleArticle />} />
         </Routes>
       </BrowserRouter>
     </div>
