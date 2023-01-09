@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: "Karma", serif;
+  background-color: #eaf4d3;
+}
+
+.App {
+  text-align: center;
+  color: #994636;
+}
+h3 {
+  font-family: "Neuton", serif;
+}
+h1 {
+  font-family: "Neuton", serif;
+}
+.article--block {
+  list-style: none;
+  border: 1px solid #994636;
+  width: 95%;
+}
+
+.article--information {
+  text-align: center;
+  display: grid;
+}
