@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
-import ArticleList from "../Components/ArticleList";
 
 function Header() {
   return (

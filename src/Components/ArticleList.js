@@ -18,7 +18,7 @@ function ArticleList() {
     <div>
       {ArticleList.length === 0 && <p>No Articles.</p>}
       {ArticlesIsLoading ? (
-        "Loading..."
+        "Loading Articles..."
       ) : (
         <ArticleListMap ArticleList={ArticleList} />
       )}
