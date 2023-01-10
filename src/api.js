@@ -22,8 +22,13 @@ export const fetchCommentList = (article_id) => {
   });
 };
 
-export const updateArticleVotes = (article_id, vote) => {
+export const incArticleVotes = (article_id) => {
   return fromApi
-    .patch(`/articles/${article_id}`, { inc_votes: vote })
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((data) => {});
+};
+export const decArticleVotes = (article_id) => {
+  return fromApi
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
     .then((data) => {});
 };

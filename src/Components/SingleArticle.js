@@ -8,24 +8,35 @@ function SingleArticle() {
   const { article_id } = useParams();
 
   const [SingleArticle, setSingleArticle] = useState({});
-  const [VoteError, setVoteError] = useState("");
+  const [Vote, setVote] = useState(0);
+  const [VoteError, setVoteError] = useState(null);
 
   useEffect(() => {
     api.fetchArticleById(article_id).then(({ article }) => {
       setSingleArticle(article);
     });
-  }, [article_id, SingleArticle]);
+  }, [article_id, Vote]);
 
   const handleArticleUpVote = () => {
-    api.updateArticleVotes(article_id, 1).catch((err) => {
-      setVoteError(err.message);
-    });
+    api
+      .incArticleVotes(article_id)
+      .then(() => {
+        setVote((currVote) => currVote + 1);
+      })
+      .catch((err) => {
+        setVoteError(err.message);
+      });
   };
 
   const handleArticleDownVote = () => {
-    api.updateArticleVotes(article_id, -1).catch((err) => {
-      setVoteError(err.message);
-    });
+    api
+      .decArticleVotes(article_id)
+      .then(() => {
+        setVote((currVote) => currVote - 1);
+      })
+      .catch((err) => {
+        setVoteError(err.message);
+      });
   };
 
   return (
