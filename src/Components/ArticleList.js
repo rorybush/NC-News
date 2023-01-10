@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import * as api from "../api";
 import { useEffect } from "react";
-import ArticleListMap from "./ArticleListMap";
+import { Link } from "react-router-dom";
 
 function ArticleList() {
   const [ArticleList, setArticleList] = useState([]);
-  const [ArticlesIsLoading, setArticlesIsLoading] = useState(true);
 
   useEffect(() => {
     api.fetchArticleList().then(({ articles }) => {
       setArticleList(articles);
-      setArticlesIsLoading(false);
     });
   }, []);
 
@@ -22,6 +20,7 @@ function ArticleList() {
       ) : (
         <ArticleListMap ArticleList={ArticleList} />
       )}
+
     </div>
   );
 }
