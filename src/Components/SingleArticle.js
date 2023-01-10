@@ -8,12 +8,25 @@ function SingleArticle() {
   const { article_id } = useParams();
 
   const [SingleArticle, setSingleArticle] = useState({});
+  const [VoteError, setVoteError] = useState("");
 
   useEffect(() => {
     api.fetchArticleById(article_id).then(({ article }) => {
       setSingleArticle(article);
     });
-  }, [article_id]);
+  }, [article_id, SingleArticle]);
+
+  const handleArticleUpVote = () => {
+    api.updateArticleVotes(article_id, 1).catch((err) => {
+      setVoteError(err.message);
+    });
+  };
+
+  const handleArticleDownVote = () => {
+    api.updateArticleVotes(article_id, -1).catch((err) => {
+      setVoteError(err.message);
+    });
+  };
 
   return (
     <div className="single--article">
@@ -25,6 +38,9 @@ function SingleArticle() {
         <p>Article Votes: {SingleArticle.votes}</p>
         <p>Comment Count: {SingleArticle.comment_count}</p>
       </div>
+      <p>{VoteError}</p>
+      <button onClick={handleArticleUpVote}>Upvote</button>
+      <button onClick={handleArticleDownVote}>Downvote</button>
       <p className="article--body">{SingleArticle.body}</p>
       <CommentsList />
     </div>
