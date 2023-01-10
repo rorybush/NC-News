@@ -1,34 +1,27 @@
 import React, { useState } from "react";
 import * as api from "../api";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import ArticleListMap from "./ArticleListMap";
 
 function ArticleList() {
   const [ArticleList, setArticleList] = useState([]);
+  const [ArticlesIsLoading, setArticlesIsLoading] = useState(true);
 
   useEffect(() => {
     api.fetchArticleList().then(({ articles }) => {
       setArticleList(articles);
+      setArticlesIsLoading(false);
     });
   }, []);
 
   return (
     <div>
-      <ul>
-        {ArticleList.map((article) => {
-          return (
-            <li key={article.article_id} className="article--block">
-              <Link to={`${article.article_id}`}>
-                <h3>{article.title}</h3>
-              </Link>
-              <div className="article--information">
-                <p>{article.author}</p>
-                <p>{article.created_at}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      {ArticleList.length === 0 && <p>No Articles</p>}
+      {ArticlesIsLoading ? (
+        "Loading..."
+      ) : (
+        <ArticleListMap ArticleList={ArticleList} />
+      )}
     </div>
   );
 }
