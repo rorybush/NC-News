@@ -33,18 +33,30 @@ h1 {
 
 .single--article > h2 {
   font-family: "Stoke", serif;
-  margin-top: 5px;
+  margin-top: 50px;
+  text-decoration: underline;
 }
 
 .single--article--information {
   text-align: left;
-  margin-left: 10px;
   line-height: 3px;
-  margin-top: 5px;
+  margin: 10px auto 60px auto;
 }
 
 .article--body {
   max-width: 900px;
   text-align: left;
+  margin: 20px auto 30px auto;
+}
+
+.comment--block {
+  list-style: none;
+  border: 1px solid rgb(153, 70, 54);
+  width: 95%;
+  max-width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 15px;
   margin: 20px auto 30px auto;
 }
