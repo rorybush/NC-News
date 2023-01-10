@@ -40,7 +40,7 @@ h1 {
 .single--article--information {
   text-align: left;
   line-height: 3px;
-  margin: 10px auto 60px auto;
+  margin: 10px auto 60px 10px;
 }
 
 .article--body {
@@ -58,5 +58,4 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   line-height: 15px;
-  margin: 20px auto 30px auto;
 }
