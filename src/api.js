@@ -5,19 +5,26 @@ const fromApi = axios.create({
 });
 
 export const fetchArticleList = () => {
-  return fromApi.get(`/articles/`).then((res) => {
-    return res.data;
+  return fromApi.get(`/articles/`).then(({ data }) => {
+    return data;
   });
 };
 
 export const fetchArticleById = (article_id) => {
-  return fromApi.get(`/articles/${article_id}`).then((res) => {
-    return res.data;
+  return fromApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data;
   });
 };
 
 export const fetchCommentList = (article_id) => {
-  return fromApi.get(`/articles/${article_id}/comments/`).then((res) => {
-    return res.data;
+  return fromApi.get(`/articles/${article_id}/comments/`).then(({ data }) => {
+    return data;
   });
+};
+
+export const patchArticleVotes = (article_id, vote) => {
+  console.log(vote);
+  return fromApi
+    .patch(`/articles/${article_id}`, { inc_votes: vote })
+    .then((data) => {});
 };

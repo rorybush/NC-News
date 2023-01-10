@@ -21,7 +21,7 @@ function CommentsList() {
 
       {CommentList.length === 0 && <p>No Comments.</p>}
       {CommentsIsLoading ? (
-        "Loading..."
+        "Loading Comments..."
       ) : (
         <CommentListMap CommentList={CommentList} />
       )}
