@@ -1,6 +1,7 @@
 import React from "react";
 
 function CommentListMap({ CommentList }) {
+  console.log(CommentList);
   return (
     <ul>
       {CommentList.map((comment) => {

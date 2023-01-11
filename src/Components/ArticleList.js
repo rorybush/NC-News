@@ -16,7 +16,7 @@ function ArticleList() {
 
   return (
     <div>
-      {ArticleList.length === 0 && <p>No Articles.</p>}
+      {!ArticlesIsLoading && ArticleList.length === 0 && <p>No Articles.</p>}
       {ArticlesIsLoading ? (
         "Loading Articles..."
       ) : (
