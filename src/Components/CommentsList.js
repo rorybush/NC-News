@@ -20,7 +20,7 @@ function CommentsList() {
   return (
     <div>
       <h3>Comments:</h3>
-      <AddComment setCommentList={setCommentList} />
+      <AddComment />
       {!CommentsIsLoading && CommentList.length === 0 && <p>No Comments.</p>}
       {CommentsIsLoading ? (
         "Loading Comments..."

@@ -3,7 +3,7 @@ import * as api from "../api";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-function AddComment({ setCommentList }) {
+function AddComment() {
   const { article_id } = useParams();
   const [CommentBody, setCommentBody] = useState("");
   const [CommentIsPosted, setCommentIsPosted] = useState(false);
