@@ -4,8 +4,8 @@ const fromApi = axios.create({
   baseURL: "https://news-api-izsx.onrender.com/api/",
 });
 
-export const fetchArticleList = () => {
-  return fromApi.get(`/articles/`).then(({ data }) => {
+export const fetchArticleList = (topic) => {
+  return fromApi.get(`/articles/`, { params: { topic } }).then(({ data }) => {
     return data;
   });
 };
@@ -40,5 +40,11 @@ export const postComment = (article_id, username, body) => {
 export const fetchUsers = () => {
   return fromApi.get(`/users/`).then(({ data }) => {
     return data.users;
+  });
+};
+
+export const fetchTopics = () => {
+  return fromApi.get(`/topics/`).then(({ data }) => {
+    return data;
   });
 };
