@@ -42,3 +42,9 @@ export const fetchUsers = () => {
     return data.users;
   });
 };
+
+export const fetchTopics = () => {
+  return fromApi.get(`/topics/`).then(({ data }) => {
+    return data;
+  });
+};

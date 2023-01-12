@@ -11,10 +11,23 @@ body {
 h3 {
   font-family: "Neuton", serif;
 }
-h1 {
-  font-family: "Neuton", serif;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
   border-bottom: 2px solid rgb(153, 70, 54, 0.5);
-  padding-bottom: 20px;
+}
+
+.header > h1 {
+  font-family: "Neuton", serif;
+  border-bottom: 2px solid rgb(153, 70, 54, 0.3);
+}
+
+.nav--topics {
+  margin-left: 20px;
 }
 
 .article--block {
