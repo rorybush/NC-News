@@ -10,7 +10,6 @@ function CommentsList() {
 
   const [CommentsIsLoading, setCommentsIsLoading] = useState(true);
   const { article_id } = useParams();
-
   useEffect(() => {
     api.fetchCommentList(article_id).then(({ comments }) => {
       setCommentList(comments[1]);
@@ -21,7 +20,7 @@ function CommentsList() {
   return (
     <div>
       <h3>Comments:</h3>
-      <AddComment />
+      <AddComment setCommentList={setCommentList} />
       {!CommentsIsLoading && CommentList.length === 0 && <p>No Comments.</p>}
       {CommentsIsLoading ? (
         "Loading Comments..."

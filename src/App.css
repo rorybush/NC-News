@@ -63,3 +63,8 @@ h1 {
   margin-right: auto;
   line-height: 15px;
 }
+
+.comment--list {
+  display: flex;
+  flex-direction: column-reverse;
+}
