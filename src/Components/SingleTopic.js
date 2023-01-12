@@ -13,8 +13,8 @@ function SingleTopic() {
   useEffect(() => {
     api.fetchArticleList(topic_slug).then(({ articles }) => {
       setFilteredArticles(articles);
+      setTopicIsLoading(false);
     });
-    setTopicIsLoading(false);
   }, [topic_slug]);
 
   return (
