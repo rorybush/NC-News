@@ -26,7 +26,6 @@ function SingleTopic() {
       ) : (
         <div>
           {filteredArticles.map((article, i) => {
-            console.log(article);
             return (
               <ul key={i}>
                 <li key={article.article_id} className="topic--block">
