@@ -10,12 +10,9 @@ function SingleTopic() {
   const { topic_slug } = useParams();
   const [filteredArticles, setFilteredArticles] = useState([]);
   const [TopicIsLoading, setTopicIsLoading] = useState(true);
-
   useEffect(() => {
-    api.fetchArticleList().then(({ articles }) => {
-      setFilteredArticles(
-        articles.filter((article) => article.topic === topic_slug)
-      );
+    api.fetchArticleList(topic_slug).then(({ articles }) => {
+      setFilteredArticles(articles);
     });
     setTopicIsLoading(false);
   }, [topic_slug]);
@@ -31,7 +28,7 @@ function SingleTopic() {
           {filteredArticles.map((article, i) => {
             return (
               <ul key={i}>
-                <li key={article.article_id}>
+                <li key={article.article_id} className="topic--block">
                   <Link to={`/articles/${article.article_id}`}>
                     <h3>{article.title}</h3>
                   </Link>

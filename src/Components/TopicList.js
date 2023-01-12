@@ -15,6 +15,7 @@ function Topics() {
       setTopicListIsLoading(false);
     });
   }, []);
+
   return (
     <div>
       {TopicListIsLoading ? (
@@ -24,7 +25,7 @@ function Topics() {
           {TopicList.map((topic, i) => {
             return (
               <ul key={i}>
-                <li key={Math.random()}>
+                <li key={topic.slug} className="topic--list--block">
                   <Link to={`${topic.slug}`}>
                     <h3>{topic.slug}</h3>
                   </Link>

@@ -19,6 +19,7 @@ h3 {
   justify-content: space-evenly;
   align-items: baseline;
   border-bottom: 2px solid rgb(153, 70, 54, 0.5);
+  margin-bottom: 40px;
 }
 
 .header > h1 {
@@ -80,4 +81,12 @@ h3 {
 .comment--list {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.topic--list--block {
+  list-style: none;
+}
+
+.topic--block {
+  list-style: none;
 }
