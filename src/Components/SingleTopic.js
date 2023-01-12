@@ -28,9 +28,9 @@ function SingleTopic() {
         "Loading..."
       ) : (
         <div>
-          {filteredArticles.map((article) => {
+          {filteredArticles.map((article, i) => {
             return (
-              <ul>
+              <ul key={i}>
                 <li key={article.article_id}>
                   <Link to={`/articles/${article.article_id}`}>
                     <h3>{article.title}</h3>

@@ -21,9 +21,9 @@ function Topics() {
         "Loading Topics..."
       ) : (
         <div>
-          {TopicList.map((topic) => {
+          {TopicList.map((topic, i) => {
             return (
-              <ul>
+              <ul key={i}>
                 <li key={Math.random()}>
                   <Link to={`${topic.slug}`}>
                     <h3>{topic.slug}</h3>
