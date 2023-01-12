@@ -2,7 +2,7 @@ import React from "react";
 
 function CommentListMap({ CommentList }) {
   return (
-    <ul>
+    <ul className="comment--list">
       {CommentList.map((comment) => {
         return (
           <li key={comment.comment_id} className="comment--block">

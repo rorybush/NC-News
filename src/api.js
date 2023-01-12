@@ -23,8 +23,22 @@ export const fetchCommentList = (article_id) => {
 };
 
 export const patchArticleVotes = (article_id, vote) => {
-  console.log(vote);
+  return fromApi.patch(`/articles/${article_id}`, { inc_votes: vote });
+};
+
+export const postComment = (article_id, username, body) => {
   return fromApi
-    .patch(`/articles/${article_id}`, { inc_votes: vote })
-    .then((data) => {});
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
+export const fetchUsers = () => {
+  return fromApi.get(`/users/`).then(({ data }) => {
+    return data.users;
+  });
 };

@@ -46,7 +46,6 @@ function SingleArticle() {
           handleVotes={handleVotes}
         />
       )}
-
       <CommentsList />
     </div>
   );
