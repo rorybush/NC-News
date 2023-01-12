@@ -26,6 +26,7 @@ function SingleTopic() {
       ) : (
         <div>
           {filteredArticles.map((article, i) => {
+            console.log(article);
             return (
               <ul key={i}>
                 <li key={article.article_id} className="topic--block">
@@ -34,7 +35,7 @@ function SingleTopic() {
                   </Link>
                   <p>By {article.author}</p>
                   <p>Published: {article.created_at}</p>
-                  <p>{article.inc_votes} Votes</p>
+                  <p>{article.votes} Votes</p>
                   <p>{article.comment_count} Comments</p>
                 </li>
               </ul>
