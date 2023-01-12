@@ -1,10 +1,9 @@
 import React from "react";
 
 function CommentListMap({ CommentList }) {
-  console.log(CommentList);
   return (
     <ul>
-      {CommentList.map((comment) => {
+      {CommentList.reverse().map((comment) => {
         return (
           <li key={comment.comment_id} className="comment--block">
             <p>{comment.author}</p>

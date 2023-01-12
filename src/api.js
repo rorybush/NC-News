@@ -36,3 +36,9 @@ export const postComment = (article_id, username, body) => {
       return data.comment;
     });
 };
+
+export const fetchUsers = () => {
+  return fromApi.get(`/users/`).then(({ data }) => {
+    return data.users;
+  });
+};

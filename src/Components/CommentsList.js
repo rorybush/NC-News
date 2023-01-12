@@ -17,6 +17,7 @@ function CommentsList() {
       setCommentsIsLoading(false);
     });
   }, [article_id]);
+
   return (
     <div>
       <h3>Comments:</h3>
