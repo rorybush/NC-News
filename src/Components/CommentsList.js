@@ -22,25 +22,6 @@ function CommentsList() {
     });
   }, [article_id]);
 
-  // useEffect(() => {
-  //   if (DeleteCommentId > 0) {
-  //     api
-  //       .deleteComment(DeleteCommentId)
-  //       .then(() => {
-  //         setCommentList((currComments) => {
-  //           const updatedComments = [...currComments];
-  //           return updatedComments.filter((comment) => {
-  //             return comment.comment_id !== DeleteCommentId;
-  //           });
-  //         });
-  //         setIsCommentDeleted(true);
-  //       })
-  //       .catch((err) => {
-  //         setDelCommError(err.message);
-  //       });
-  //   }
-  // }, [DeleteCommentId]);
-
   return (
     <div>
       <h3>Comments:</h3>
