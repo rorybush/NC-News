@@ -5,6 +5,7 @@ const fromApi = axios.create({
 });
 
 export const fetchArticleList = (topic, sort_by) => {
+  if (sort_by === undefined) sort_by = "";
   return fromApi
     .get(`/articles${sort_by}`, { params: { topic } })
     .then(({ data }) => {
