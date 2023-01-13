@@ -13,7 +13,14 @@ function SingleArticleDisplayData({
       <div className="single--article--information">
         <p>By {SingleArticle.author}</p>
         <p>Topic: {SingleArticle.topic}</p>
-        <p>Published: {SingleArticle.created_at}</p>
+        <p>
+          Published:{" "}
+          {SingleArticle.created_at
+            .split("T")[0]
+            .split("-")
+            .reverse()
+            .join("-")}
+        </p>
         <p>{Vote.inc_votes} Votes</p>
         <p>{SingleArticle.comment_count} Comments</p>
       </div>

@@ -27,6 +27,11 @@ h3 {
   border-bottom: 2px solid rgb(153, 70, 54, 0.3);
 }
 
+.nav {
+  text-decoration: none;
+  color: #994636;
+}
+
 .nav--topics {
   margin-left: 20px;
 }
