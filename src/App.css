@@ -34,9 +34,9 @@ h3 {
 }
 
 .avatar {
-  margin-left: 20px;
   height: 100%;
-  width: 50;
+  width: 50px;
+  justify-content: center;
 }
 
 .avatar--circle {
@@ -45,7 +45,6 @@ h3 {
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid rgb(153, 70, 54);
-  align-self: center;
 }
 
 .article--block {
