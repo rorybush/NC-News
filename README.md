@@ -19,7 +19,7 @@ git clone git@github.com:rorybush/NC-News.git
 Change the directory:
 
 ```sh
-cd NC-News
+cd nc-news/
 ```
 
 Install the dependancies:
