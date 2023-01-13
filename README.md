@@ -1,6 +1,6 @@
 # NC News
 
-> This is the front end for a news website which allows users to read articles, post comments, vote on articles and comments, and comments and post new articles.
+> This is the front end for a news website which allows users to read articles, post new comments and articles and vote on articles and comments.
 
 [NC News Frontend - Hosted on Netlify](https://delicate-mooncake-95d326.netlify.app/)
 
