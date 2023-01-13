@@ -21,7 +21,6 @@ h3 {
   align-items: baseline;
   border-bottom: 2px solid rgb(153, 70, 54, 0.5);
   margin-bottom: 40px;
-  align-content: stretch;
 }
 
 .header > h1 {
@@ -36,7 +35,10 @@ h3 {
 .avatar {
   height: 100%;
   width: 50px;
-  justify-content: center;
+}
+
+.account--details {
+  display: flex;
 }
 
 .avatar--circle {
@@ -45,12 +47,22 @@ h3 {
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid rgb(153, 70, 54);
+  margin: auto 0 auto 20px;
 }
 
 .article--block {
   list-style: none;
   border: 1px solid rgb(153, 70, 54);
-  width: 95%;
+  width: 500px;
+  height: 150px;
+  background-color: #eaf4d3;
+}
+
+.fill--article--block {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
 }
 
 .article--information {

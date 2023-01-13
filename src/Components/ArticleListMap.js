@@ -10,7 +10,7 @@ function ArticleListMap({ ArticleList }) {
       {ArticleList.map((article) => {
         return (
           <li key={article.article_id} className="article--block">
-            <Link to={`${article.article_id}`}>
+            <Link to={`${article.article_id}`} className="fill--article--block">
               <h3>{article.title}</h3>
             </Link>
             <div className="article--information">

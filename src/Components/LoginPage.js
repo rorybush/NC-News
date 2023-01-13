@@ -47,24 +47,30 @@ function LoginPage() {
 
   return (
     <div>
-      <p>{LoginError}</p>
-      <form onSubmit={UserLogin}>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            onChange={handleChange}
-            value={UsernameInput}
-          ></input>
-        </label>
-        <button type="submit" disabled={!UsernameInput}>
-          Sign In
-        </button>
-      </form>
-      <p>
-        Valid Usernames: tickle122, grumpy19, happyamy2016, cooljmessy,
-        weegembump, jessjelly
-      </p>
+      {UserList.length > 0 ? (
+        <>
+          <p>{LoginError}</p>
+          <form onSubmit={UserLogin}>
+            <label>
+              Username:{" "}
+              <input
+                type="text"
+                onChange={handleChange}
+                value={UsernameInput}
+              ></input>
+            </label>
+            <button type="submit" disabled={!UsernameInput}>
+              Sign In
+            </button>
+          </form>
+          <p>
+            Valid Usernames: tickle122, grumpy19, happyamy2016, cooljmessy,
+            weegembump, jessjelly
+          </p>
+        </>
+      ) : (
+        <p>The server is booting up...</p>
+      )}
     </div>
   );
 }
