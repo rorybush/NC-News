@@ -4,14 +4,13 @@ import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../App";
 
-function AddComment({ setCommentList }) {
+function AddComment({ setCommentList, setCommentSent, CommentSent }) {
   const { article_id } = useParams();
   const { User } = useContext(UserContext);
 
   const [CommentBody, setCommentBody] = useState("");
   const [CommentIsPosted, setCommentIsPosted] = useState(false);
   const [AddCommentError, setAddCommentError] = useState(null);
-  const [CommentSent, setCommentSent] = useState(false);
 
   const AddNewComment = (e) => {
     e.preventDefault();

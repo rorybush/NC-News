@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import * as api from "../api";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentListMap from "./CommentListMap";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
+import { UserContext } from "../App";
 
 function CommentsList() {
   const [CommentList, setCommentList] = useState([]);
@@ -12,6 +13,9 @@ function CommentsList() {
   const [DeleteCommentId, setDeleteCommentId] = useState(0);
   const [DelCommError, setDelCommError] = useState("");
   const [IsCommentDeleted, setIsCommentDeleted] = useState(false);
+  const [CommentSent, setCommentSent] = useState(false);
+
+  const { IsLoggedIn } = useContext(UserContext);
 
   const { article_id } = useParams();
 
@@ -20,14 +24,20 @@ function CommentsList() {
       setCommentList(comments[1]);
       setCommentsIsLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, CommentSent]);
 
   return (
     <div>
       <h3>Comments:</h3>
       <p>{DelCommError}</p>
       {IsCommentDeleted && <p>Comment Deleted</p>}
-      <AddComment setCommentList={setCommentList} />
+      {IsLoggedIn && (
+        <AddComment
+          setCommentList={setCommentList}
+          CommentSent={CommentSent}
+          setCommentSent={setCommentSent}
+        />
+      )}
       <DeleteComment
         DeleteCommentId={DeleteCommentId}
         setCommentList={setCommentList}

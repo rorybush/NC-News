@@ -6,12 +6,11 @@ import { UserContext } from "../App";
 function LoginPage() {
   const navigate = useNavigate();
 
-  const { setUser } = useContext(UserContext);
+  const { setUser, setIsLoggedIn } = useContext(UserContext);
 
   const [UserList, setUserList] = useState([]);
   const [UsernameInput, setUsernameInput] = useState("");
   const [LoginError, setLoginError] = useState("");
-  const [IsLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     api.fetchUsers().then((users) => {
