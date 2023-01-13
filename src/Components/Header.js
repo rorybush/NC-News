@@ -3,19 +3,28 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 
 function Header() {
-  const { User } = useContext(UserContext);
+  const { User, IsLoggedIn } = useContext(UserContext);
 
   return (
     <div className="header">
-      <h1>NC News</h1>
+      <Link to="/articles" style={{ color: "#994636" }}>
+        <h1>NC News</h1>
+      </Link>
       <nav>
-        <Link to="/articles">Articles</Link>
-        <Link className="nav--topics" to="/topics">
+        <Link to="/articles" style={{ color: "#994636" }}>
+          Articles
+        </Link>
+        <Link className="nav--topics" to="/topics" style={{ color: "#994636" }}>
           Topics
         </Link>
       </nav>
 
-      <p>Hello {User.name}, Welcome to NC News</p>
+      {IsLoggedIn && (
+        <div>
+          <p>Hello {User.name}, Welcome to NC News</p>
+          <img src={User.avatar_url} alt={`${User.name} Profile Avatar`} />
+        </div>
+      )}
     </div>
   );
 }

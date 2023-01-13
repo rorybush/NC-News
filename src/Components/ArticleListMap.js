@@ -11,8 +11,15 @@ function ArticleListMap({ ArticleList }) {
               <h3>{article.title}</h3>
             </Link>
             <div className="article--information">
-              <p>{article.author}</p>
-              <p>{article.created_at} </p>
+              <p>By {article.author}</p>
+              <p>
+                Published {"  "}
+                {article.created_at
+                  .split("T")[0]
+                  .split("-")
+                  .reverse()
+                  .join("-")}
+              </p>
             </div>
           </li>
         );
