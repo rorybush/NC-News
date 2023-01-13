@@ -10,8 +10,8 @@ function AddComment({ setCommentList }) {
 
   const [CommentBody, setCommentBody] = useState("");
   const [CommentIsPosted, setCommentIsPosted] = useState(false);
-  const [AddCommentError, setAddCommentError] = useState(null);
   const [CommentSent, setCommentSent] = useState(false);
+  const [AddCommentError, setAddCommentError] = useState(null);
 
   const AddNewComment = (e) => {
     e.preventDefault();
@@ -23,7 +23,6 @@ function AddComment({ setCommentList }) {
       body: CommentBody,
     };
     setCommentSent(true);
-
     setCommentList((currComments) => {
       return [...currComments, newComment];
     });

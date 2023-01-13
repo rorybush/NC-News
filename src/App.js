@@ -16,9 +16,13 @@ function App() {
     name: "",
     avatar_url: "",
   });
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="App">
-      <UserContext.Provider value={{ User, setUser }}>
+      <UserContext.Provider
+        value={{ User, setUser, IsLoggedIn, setIsLoggedIn }}
+      >
         <Header />
         <Routes>
           <Route path="/" element={<LoginPage />} />

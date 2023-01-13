@@ -50,3 +50,7 @@ export const fetchTopics = () => {
     return data;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return fromApi.delete(`/comments/${comment_id}`);
+};

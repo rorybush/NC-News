@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import * as api from "../api";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentListMap from "./CommentListMap";
 import AddComment from "./AddComment";
+import DeleteComment from "./DeleteComment";
+import { UserContext } from "../App";
 
 function CommentsList() {
   const [CommentList, setCommentList] = useState([]);
-
   const [CommentsIsLoading, setCommentsIsLoading] = useState(true);
+  const [DeleteCommentId, setDeleteCommentId] = useState(0);
+  const [DelCommError, setDelCommError] = useState("");
+  const [IsCommentDeleted, setIsCommentDeleted] = useState(false);
+
+  const { IsLoggedIn } = useContext(UserContext);
+
   const { article_id } = useParams();
+
   useEffect(() => {
     api.fetchCommentList(article_id).then(({ comments }) => {
       setCommentList(comments[1]);
@@ -20,12 +28,23 @@ function CommentsList() {
   return (
     <div>
       <h3>Comments:</h3>
-      <AddComment setCommentList={setCommentList} />
+      <p>{DelCommError}</p>
+      {IsCommentDeleted && <p>Comment Deleted</p>}
+      {IsLoggedIn && <AddComment setCommentList={setCommentList} />}
+      <DeleteComment
+        DeleteCommentId={DeleteCommentId}
+        setCommentList={setCommentList}
+        setIsCommentDeleted={setIsCommentDeleted}
+        setDelCommError={setDelCommError}
+      />
       {!CommentsIsLoading && CommentList.length === 0 && <p>No Comments.</p>}
       {CommentsIsLoading ? (
         "Loading Comments..."
       ) : (
-        <CommentListMap CommentList={CommentList} />
+        <CommentListMap
+          CommentList={CommentList}
+          setDeleteCommentId={setDeleteCommentId}
+        />
       )}
     </div>
   );
