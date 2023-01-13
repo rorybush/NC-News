@@ -19,11 +19,15 @@ function Header() {
         </Link>
       </nav>
 
-      {IsLoggedIn && (
+      {IsLoggedIn ? (
         <div>
           <p>Hello {User.name}, Welcome to NC News</p>
           <img src={User.avatar_url} alt={`${User.name} Profile Avatar`} />
         </div>
+      ) : (
+        <Link to="/" style={{ color: "#994636" }}>
+          <p>Login</p>
+        </Link>
       )}
     </div>
   );
