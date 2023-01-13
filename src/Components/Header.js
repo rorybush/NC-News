@@ -20,10 +20,16 @@ function Header() {
       </nav>
 
       {IsLoggedIn ? (
-        <div>
+        <>
           <p>Hello {User.name}, Welcome to NC News</p>
-          <img src={User.avatar_url} alt={`${User.name} Profile Avatar`} />
-        </div>
+          <div className="avatar--circle">
+            <img
+              src={User.avatar_url}
+              alt={`${User.name} Profile Avatar`}
+              className="avatar"
+            />
+          </div>
+        </>
       ) : (
         <Link to="/" style={{ color: "#994636" }}>
           <p>Login</p>

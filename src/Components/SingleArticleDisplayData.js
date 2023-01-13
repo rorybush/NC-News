@@ -1,4 +1,7 @@
 import React from "react";
+import dayjs from "dayjs";
+const localizedFormat = require("dayjs/plugin/localizedFormat");
+dayjs.extend(localizedFormat);
 
 function SingleArticleDisplayData({
   SingleArticle,
@@ -15,11 +18,7 @@ function SingleArticleDisplayData({
         <p>Topic: {SingleArticle.topic}</p>
         <p>
           Published:{"  "}
-          {SingleArticle.created_at
-            .split("T")[0]
-            .split("-")
-            .reverse()
-            .join("-")}
+          {dayjs(SingleArticle.created_at).format("LLL")}
         </p>
         <p>{Vote.inc_votes} Votes</p>
         <p>{SingleArticle.comment_count} Comments</p>

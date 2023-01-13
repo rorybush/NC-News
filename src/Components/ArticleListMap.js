@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
+const relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 function ArticleListMap({ ArticleList }) {
   return (
@@ -14,11 +17,7 @@ function ArticleListMap({ ArticleList }) {
               <p>By {article.author}</p>
               <p>
                 Published {"  "}
-                {article.created_at
-                  .split("T")[0]
-                  .split("-")
-                  .reverse()
-                  .join("-")}
+                {dayjs(article.created_at).fromNow()}
               </p>
             </div>
           </li>

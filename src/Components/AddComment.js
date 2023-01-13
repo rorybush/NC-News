@@ -18,7 +18,7 @@ function AddComment({ setCommentList }) {
     const newComment = {
       comment_id: Date.now(),
       votes: 0,
-      created_at: "Just posted",
+      created_at: new Date(),
       author: User.username,
       body: CommentBody,
     };
