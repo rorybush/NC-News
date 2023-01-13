@@ -13,7 +13,6 @@ function CommentsList() {
   const [DeleteCommentId, setDeleteCommentId] = useState(0);
   const [DelCommError, setDelCommError] = useState("");
   const [IsCommentDeleted, setIsCommentDeleted] = useState(false);
-  const [CommentSent, setCommentSent] = useState(false);
 
   const { IsLoggedIn } = useContext(UserContext);
 
@@ -24,20 +23,14 @@ function CommentsList() {
       setCommentList(comments[1]);
       setCommentsIsLoading(false);
     });
-  }, [article_id, CommentSent]);
+  }, [article_id]);
 
   return (
     <div>
       <h3>Comments:</h3>
       <p>{DelCommError}</p>
       {IsCommentDeleted && <p>Comment Deleted</p>}
-      {IsLoggedIn && (
-        <AddComment
-          setCommentList={setCommentList}
-          CommentSent={CommentSent}
-          setCommentSent={setCommentSent}
-        />
-      )}
+      {IsLoggedIn && <AddComment setCommentList={setCommentList} />}
       <DeleteComment
         DeleteCommentId={DeleteCommentId}
         setCommentList={setCommentList}

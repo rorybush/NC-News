@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../App";
 
-function AddComment({ setCommentList, setCommentSent, CommentSent }) {
+function AddComment({ setCommentList }) {
   const { article_id } = useParams();
   const { User } = useContext(UserContext);
 
   const [CommentBody, setCommentBody] = useState("");
   const [CommentIsPosted, setCommentIsPosted] = useState(false);
+  const [CommentSent, setCommentSent] = useState(false);
   const [AddCommentError, setAddCommentError] = useState(null);
 
   const AddNewComment = (e) => {
@@ -22,7 +23,6 @@ function AddComment({ setCommentList, setCommentSent, CommentSent }) {
       body: CommentBody,
     };
     setCommentSent(true);
-
     setCommentList((currComments) => {
       return [...currComments, newComment];
     });
