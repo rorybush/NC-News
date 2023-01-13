@@ -23,8 +23,7 @@ function ArticleList() {
   return (
     <div>
       <select onChange={handleSortBy}>
-        <option value="">Sort By...</option>
-        <option value="?sort_by=created_at&order=DESC">Newest</option>
+        <option value="?sort_by=created_at&order=DESC">Sort by: Newest</option>
         <option value="?sort_by=created_at&order=ASC">Oldest</option>
         <option value="?sort_by=votes&order=DESC">Most Liked</option>
         <option value="?sort_by=votes&order=ASC">Most Disliked</option>

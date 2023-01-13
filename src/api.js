@@ -5,7 +5,6 @@ const fromApi = axios.create({
 });
 
 export const fetchArticleList = (topic, sort_by) => {
-  console.log(topic, sort_by);
   return fromApi
     .get(`/articles${sort_by}`, { params: { topic } })
     .then(({ data }) => {
