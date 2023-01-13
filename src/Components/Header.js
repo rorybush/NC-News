@@ -22,7 +22,7 @@ function Header() {
       {IsLoggedIn && (
         <div>
           <p>Hello {User.name}, Welcome to NC News</p>
-          <img src={User.avatar_url} alt={`${User.name} Avatar`} />
+          <img src={User.avatar_url} alt={`${User.name} Profile Avatar`} />
         </div>
       )}
     </div>

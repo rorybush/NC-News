@@ -13,7 +13,7 @@ function ArticleListMap({ ArticleList }) {
             <div className="article--information">
               <p>By {article.author}</p>
               <p>
-                Published{" "}
+                Published {"  "}
                 {article.created_at
                   .split("T")[0]
                   .split("-")

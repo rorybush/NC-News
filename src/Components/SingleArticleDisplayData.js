@@ -14,7 +14,7 @@ function SingleArticleDisplayData({
         <p>By {SingleArticle.author}</p>
         <p>Topic: {SingleArticle.topic}</p>
         <p>
-          Published:{" "}
+          Published:{"  "}
           {SingleArticle.created_at
             .split("T")[0]
             .split("-")
