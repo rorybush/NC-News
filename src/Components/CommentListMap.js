@@ -1,6 +1,10 @@
 import React from "react";
+import { UserContext } from "../App";
+import { useContext } from "react";
 
-function CommentListMap({ CommentList }) {
+function CommentListMap({ CommentList, handleDelete, setDeleteCommentId }) {
+  const { User } = useContext(UserContext);
+
   return (
     <ul className="comment--list">
       {CommentList.map((comment) => {
@@ -10,6 +14,15 @@ function CommentListMap({ CommentList }) {
             <p>{comment.body}</p>
             <p>Published: {comment.created_at}</p>
             <p>Votes: {comment.votes} </p>
+            {User.username === comment.author && (
+              <button
+                onClick={() => {
+                  setDeleteCommentId(comment.comment_id);
+                }}
+              >
+                Delete
+              </button>
+            )}
           </li>
         );
       })}
